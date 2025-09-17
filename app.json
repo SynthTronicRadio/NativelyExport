@@ -1,0 +1,58 @@
+{
+  "expo": {
+    "name": "synthtronicradionoir",
+    "displayName": "SynthTronic Radio Noir",
+    "slug": "synthtronicradionoir",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/ca499bca-7776-4ec4-a740-137901f37fb3.png",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": false,
+    "splash": {
+      "image": "./assets/images/ca499bca-7776-4ec4-a740-137901f37fb3.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.synthtronic.radionoir",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "icon": {
+        "image": "./assets/images/ca499bca-7776-4ec4-a740-137901f37fb3.png",
+        "padding": "20%"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/ca499bca-7776-4ec4-a740-137901f37fb3.png",
+        "backgroundColor": "#000000",
+        "monochromeImage": "./assets/images/ca499bca-7776-4ec4-a740-137901f37fb3.png"
+      },
+      "package": "com.synthtronicradio.synthtronicradionoir",
+      "compileSdkVersion": 34,
+      "targetSdkVersion": 34,
+      "buildToolsVersion": "34.0.0"
+    },
+    "web": {
+      "favicon": "./assets/images/ca499bca-7776-4ec4-a740-137901f37fb3.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-font",
+      "expo-router"
+    ],
+    "scheme": "synthtronic-radio-noir",
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "40d7f00a-124b-4619-9898-222cba50a7e9"
+      }
+    },
+    "owner": "synthtronicradio"
+  }
+}
