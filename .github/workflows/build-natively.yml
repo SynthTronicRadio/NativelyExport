@@ -1,0 +1,45 @@
+name: Build Natively Android App
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Natively CLI
+        run: npm install -g natively-cli
+
+      - name: Build Android app
+        env:
+          NATIVE_RELEASE_KEYSTORE: ${{ secrets.NATIVE_RELEASE_KEYSTORE }}
+          NATIVE_KEY_ALIAS: ${{ secrets.NATIVE_KEY_ALIAS }}
+          NATIVE_KEY_PASSWORD: ${{ secrets.NATIVE_KEY_PASSWORD }}
+          NATIVE_STORE_PASSWORD: ${{ secrets.NATIVE_STORE_PASSWORD }}
+        run: |
+          natively build android --release \
+            --keystore $NATIVE_RELEASE_KEYSTORE \
+            --key-alias $NATIVE_KEY_ALIAS \
+            --key-password $NATIVE_KEY_PASSWORD \
+            --store-password $NATIVE_STORE_PASSWORD
+
+      - name: Upload Android build
+        uses: actions/upload-artifact@v3
+        with:
+          name: android-build
+          path: |
+            ./android/app/build/outputs/**/*.aab
+            ./android/app/build/outputs/**/*.apk
